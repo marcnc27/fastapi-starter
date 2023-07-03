@@ -5,7 +5,7 @@ from starlette.middleware.cors import CORSMiddleware
 
 from config import Configuration
 from constants import app_title
-from core.api import status_router
+from core.api import status_router, sample_router
 from utils import Logger
 
 logger = Logger.get_logger(__name__)
@@ -31,3 +31,4 @@ def on_startup():
         logger.debug("on startup: registering routers")
 
     app.include_router(status_router)
+    app.include_router(sample_router)
